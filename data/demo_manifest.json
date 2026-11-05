@@ -16,6 +16,14 @@
       ],
       "split": "val",
       "preview_only": true
+    },
+    "20260604": {
+      "bundle": "data/dates/20260604/date_bundle.json",
+      "scene_ids": [
+        "20260604_062718_84_251e_3B"
+      ],
+      "split": "val",
+      "preview_only": true
     }
   },
   "model": "models/selected_model.joblib",

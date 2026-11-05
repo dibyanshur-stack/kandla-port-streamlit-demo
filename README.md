@@ -4,10 +4,11 @@ This is a self-contained, public **precomputed demonstration** of the existing d
 
 ## Included real demonstration dates
 
-- **31 May 2026** (`20260531`) — `20260531_063100_24_2504_3B`.
-- **3 June 2026** (`20260603`) — `20260603_063613_80_250a_3B`.
+- **20260531** — `20260531_063100_24_2504_3B`.
+- **20260603** — `20260603_063613_80_250a_3B`.
+- **20260604** — `20260604_062718_84_251e_3B`.
 
-Both are validation scenes already analyzed locally with the selected tuned RF-2. Each included RGB/classes/probability/quality/coverage preview is **1024 × 293**, sampled from the real complete scene mosaic. Source geometry and the exact source-sample mapping are included. All counts, areas, probability summaries and validation metrics come from the recorded **full-resolution unique-pixel analysis**, never from counting these lower-resolution previews. See [AVAILABLE_DATES.md](AVAILABLE_DATES.md).
+These are validation scenes already analyzed locally with the selected tuned RF-2. Each included RGB/classes/probability/quality/coverage preview has a maximum dimension of **1024 pixels**, sampled from the real complete scene mosaic. Source geometry and the exact source-sample mapping are included. All counts, areas, probability summaries and validation metrics come from the recorded **full-resolution unique-pixel analysis**, never from counting these lower-resolution previews. See [AVAILABLE_DATES.md](AVAILABLE_DATES.md).
 
 No raw SR/UDM2 scenes, training masks, validation pixel masks, reserved test masks, private tile inventories, Windows paths or credentials are distributed. Ground-truth and error raster layers are intentionally unavailable in this public bundle; aggregate validation metrics remain visible. Downloads are explicitly preview PNGs, original-grid metadata, aggregate CSV/JSON and a self-contained HTML report. Full-resolution GeoTIFFs remain in the local research project.
 
@@ -42,40 +43,49 @@ python -m streamlit run app.py
 
 The standard-library audit `python smoke_test.py` works without installed numerical packages. It verifies every asset hash, all preview layers/dtypes/ranges/NoData, relative paths, model-state byte preservation, metadata redaction, dates, geometry, areas and validation confusion support. `--runtime` additionally tests actual model deserialization, PNG/HTML/CSV export and Streamlit initial/date/download views. No test ever fits a model.
 
-## GitHub upload — publish ONLY this directory
+## Update the existing GitHub repository
 
-Create an **empty** GitHub repository named `kandla-port-streamlit-demo` (no generated README or license). Then run from the parent project directory. Replace only the username variable. Do not run `git add .` in the research project's root and do not push its existing history.
+The existing remote is `https://github.com/dibyanshur-stack/kandla-port-streamlit-demo.git`, branch `main`, app entrypoint `app.py`. Keep the existing repository and Streamlit app.
+
+From the parent research project, run the complete exporter with the existing research environment. It discovers validation scenes from the immutable manifest/index, reuses verified selected-model caches and computes missing scenes with RF-2. It builds a candidate, runs the privacy/integrity smoke audit, then updates this bundle. It never fits a model or reads reserved test label contents.
 
 ```powershell
-$GitHubUser = "YOUR_GITHUB_USERNAME"
-$Repo = "kandla-port-streamlit-demo"
-Set-Location .\deployment
+$Py = (Resolve-Path .\.venv\Scripts\python.exe).Path
+& $Py .\scripts\export_validation_deployment.py
+if ($LASTEXITCODE -ne 0) { throw "Validation export incomplete; review the reported scenes" }
+& $Py .\deployment\smoke_test.py --runtime
+if ($LASTEXITCODE -ne 0) { throw "Runtime smoke test failed" }
 
-python .\smoke_test.py
-if ($LASTEXITCODE -ne 0) { throw "Bundle audit failed" }
-
-git init -b main
-git add .
-git status --short
-git diff --cached --stat
-# Only this deployment's allowlisted files should be staged.
-git commit -m "Deploy cached date-wise Kandla Port satellite dashboard"
-git remote add origin "https://github.com/$GitHubUser/$Repo.git"
-git push -u origin main
+Push-Location .\deployment
+try {
+    $Remote = git remote get-url origin
+    if ($LASTEXITCODE -ne 0 -or $Remote -ne "https://github.com/dibyanshur-stack/kandla-port-streamlit-demo.git") { throw "Unexpected existing remote" }
+    $Branch = git branch --show-current
+    if ($Branch -ne "main") { throw "Expected existing main branch" }
+    git add -- data AVAILABLE_DATES.md TEST_STATUS.md PUBLIC_MANIFEST.json README.md smoke_test.py
+    if ($LASTEXITCODE -ne 0) { throw "Staging failed" }
+    git diff --cached --stat
+    git commit -m "Extend validation date previews using selected tuned RF-2"
+    if ($LASTEXITCODE -ne 0) { throw "Commit failed or no changes to commit" }
+    git push origin main
+    if ($LASTEXITCODE -ne 0) { throw "Push failed; inspect remote changes before retrying" }
+} finally { Pop-Location }
 ```
 
-If `python` is not on PATH, use the Python 3.12 environment created above: `& ..\.venv-cloud\Scripts\python.exe .\smoke_test.py`. Authenticate to GitHub using Git Credential Manager/browser sign-in; do not put credentials in remote URLs or source files.
+If dependencies are missing, install `deployment/requirements.txt` and `rasterio>=1.3,<2` into the existing Python 3.12 research environment first. Do not change the saved model's sklearn version. The export report is saved locally at `results/validation_deployment_export.json`, outside the public repository. `--cached-only` is an explicitly partial recovery option and exits with status 2 if available scenes still need inference.
 
-This is a **new independent Git repository inside `deployment/`**. It does not inherit private project history. `.gitignore` is a strict allowlist: extra files, virtual environments, secrets, caches, raw scenes, masks and training artifacts are excluded. The included model is under 10 MB, and every bundled file is below GitHub's ordinary 100 MiB hard limit; Git LFS is unnecessary for this bundle. [GitHub file-size documentation](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github).
+See [AVAILABLE_DATES.md](AVAILABLE_DATES.md) for the current exact inventory and pending dates. Any available scenes reported as pending need the complete exporter to finish inference in native Windows Python. The included bundle passes its standard-library smoke audit.
 
-For an already initialized deployment repository, use `git add .`, `git commit -m "Update public demo assets"` and `git push`; do not repeat `git remote add origin`.
+The deployment allowlist excludes raw imagery, masks, credentials, environments and research results. Only compressed previews and aggregate statistics are committed. No repository initialization or new app creation is needed.
 
-## Streamlit Community Cloud
+## Existing Streamlit Community Cloud app
+
+Pushing the bundle to the existing repository updates the existing app through its GitHub connection. Keep its current configuration. The settings below describe the required environment; no new app is needed.
 
 1. Sign in at [share.streamlit.io](https://share.streamlit.io/) with the GitHub account that can access the new repository.
-2. Select **Create app**, choose `kandla-port-streamlit-demo`, branch **main**, and main file **app.py**.
+2. Verify the existing app uses `kandla-port-streamlit-demo`, branch **main**, and main file **app.py**.
 3. In **Advanced settings**, explicitly choose **Python 3.12**. The bundled `.python-version` documents the local target; the Cloud UI selection controls the actual runtime.
-4. Deploy. `requirements.txt` is at the repository root alongside `app.py`; no `packages.txt`, Windows environment variable, source-scene mount, API key or secrets are required.
+4. Allow the existing app to rebuild after the push. `requirements.txt` is at the repository root alongside `app.py`; no `packages.txt`, Windows environment variable, source-scene mount, API key or secrets are required.
 5. Open the app, select a date and click **Load cached date analysis**. Change layers/opacity/threshold, inspect the charts, then click **Prepare preview downloads & date report**.
 
 This follows the official [deployment guide](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/deploy) and [dependency/file organization guide](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/file-organization). Runtime requirements are pinned to the existing saved-model environment and support Python 3.12; sklearn is pinned to 1.9.1 to match the estimator. [Official sklearn package](https://pypi.org/project/scikit-learn/1.9.1/).

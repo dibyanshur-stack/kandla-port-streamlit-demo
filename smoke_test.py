@@ -136,11 +136,16 @@ def runtime_audit():
         out=export_date((ROOT/item['bundle']).parent);check((out/'report.html').is_file(),'HTML report export failed')
     app=AppTest.from_file(str(ROOT/'app.py'),default_timeout=90).run()
     check(not app.exception,f'Streamlit initial load error: {app.exception}')
-    next(button for button in app.button if button.label=='Load cached date analysis').click().run(timeout=90)
-    check(not app.exception,f'Streamlit date view error: {app.exception}')
-    next(button for button in app.button if button.label=='Prepare preview downloads & date report').click().run(timeout=90)
-    check(not app.exception,f'Streamlit download view error: {app.exception}')
-    return 'passed: model, render, HTML/CSV/PNG exports, Streamlit initial/date/download views'
+    for date in read('data/demo_manifest.json')['dates']:
+        selector=next(widget for widget in app.selectbox if widget.label=='Acquisition date')
+        selector.select(date).run(timeout=90)
+        check(not app.exception,f'Streamlit date selection failed: {date}: {app.exception}')
+        next(button for button in app.button if button.label=='Load cached date analysis').click().run(timeout=90)
+        check(not app.exception,f'Streamlit date view error: {date}: {app.exception}')
+        next(button for button in app.button if button.label=='Prepare preview downloads & date report').click().run(timeout=90)
+        check(not app.exception,f'Streamlit download view error: {date}: {app.exception}')
+    return 'passed: model, all preview renders/exports and every Streamlit date/download view'
+
 
 
 if __name__=='__main__':

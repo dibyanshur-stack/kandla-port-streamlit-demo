@@ -17,20 +17,20 @@
       "sha256": "a4824ce89313c02b988867223219dfcd71200adba0a36b1232acc56ae1b3b72a"
     },
     "AVAILABLE_DATES.md": {
-      "bytes": 900,
-      "sha256": "a35801399ff5b801992f2785032974598edaa4fe2978bf4f7f4c8b167b249e7d"
+      "bytes": 1126,
+      "sha256": "e3e50ebd1da4b158a3a3ee7e4d4af9e0581178e04e87036ea7f1977076e8e5e6"
     },
     "DATA_NOTICE.md": {
       "bytes": 1654,
       "sha256": "5264bafb360e4169f96ccd5f3d92a6ee60e6e61b4462dcbe8c98a8f5b4833ed9"
     },
     "README.md": {
-      "bytes": 9210,
-      "sha256": "727ab19d90f8dd8feeef56b452230bd5d36a79770ce1373a0093970f5a1ce7fd"
+      "bytes": 10423,
+      "sha256": "b606d0da0bc6e5f14ed170428753b60fb90101ec7adcf98b2475e31849159362"
     },
     "TEST_STATUS.md": {
-      "bytes": 1932,
-      "sha256": "827344288716fc4b334d7d2ce2313cfedd4b8a8f94c90d8af4270e02ecea9add"
+      "bytes": 708,
+      "sha256": "85c816cf7e622c7c7aba7376793c55792b63d82f43ec98945867dd01d9430dbb"
     },
     "app.py": {
       "bytes": 17595,
@@ -64,9 +64,17 @@
       "bytes": 1011,
       "sha256": "e27dfc41ddd98b7206bb74fd94b5bb667b68df54e09f82f84fabfe3df4a851d4"
     },
+    "data/dates/20260604/date_bundle.json": {
+      "bytes": 18981,
+      "sha256": "ab5446ad596bbc7a92e9bcea3633782520e1334facbb316e77badbd0d113e928"
+    },
+    "data/dates/20260604/date_statistics.csv": {
+      "bytes": 936,
+      "sha256": "87f03dc2a2ebace25ef5c661d610ad18ae1e3925c0b3dfb670788b3f8bc9cdf8"
+    },
     "data/demo_manifest.json": {
-      "bytes": 769,
-      "sha256": "e04bd45397b978277c9a4ebbaaea938b620e0b2e100e991f95330e512b68bf80"
+      "bytes": 966,
+      "sha256": "7a08a5de5086483f732a5e87fd5d15ebc805617213658738917c0bd19dc33549"
     },
     "data/scenes/20260531_063100_24_2504_3B/analysis.json": {
       "bytes": 12023,
@@ -83,6 +91,14 @@
     "data/scenes/20260603_063613_80_250a_3B/preview_1024.npz": {
       "bytes": 925894,
       "sha256": "d6fc56e9efaee3eafda4782aceac576d57fd14cdc1192a4403e77cbbb1454107"
+    },
+    "data/scenes/20260604_062718_84_251e_3B/analysis.json": {
+      "bytes": 11867,
+      "sha256": "e3701e404cab04f6d1bee9368c8517676afaba015ad339008ee173abb1b21d3c"
+    },
+    "data/scenes/20260604_062718_84_251e_3B/preview_1024.npz": {
+      "bytes": 937888,
+      "sha256": "f5d910c2bc6c94121df831793a5289fa79652f930f211441424d3d96228545a1"
     },
     "models/byte_preservation.json": {
       "bytes": 473,
@@ -101,8 +117,8 @@
       "sha256": "50d43fcc23fd61de6e74c2458818e1a43bd69c6813fcf8b351d871849ab3e67c"
     },
     "smoke_test.py": {
-      "bytes": 9511,
-      "sha256": "afd2056530e86e17ea6c17ae905d593202342cce1303cc096a34ae9c31dfa30a"
+      "bytes": 9834,
+      "sha256": "691ed6caa76660192794860718aa725a2479981603fd31cc433eb4241e431608"
     }
   }
 }
