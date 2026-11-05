@@ -1,0 +1,8 @@
+{
+  "source_artifact_sha256": "0b0ee5f675bd7e100c5660ee0134e705785055dc0abe3b497d5b7a714ef3cc5a",
+  "public_artifact_sha256": "67e83fc904103e611c6bb8e44498647d1c2e761a45e18d44069a56edbb060666",
+  "estimator_prefix_bytes": 25249984,
+  "estimator_prefix_sha256": "09f1665cb5171bc9176d020a57287f5bad355cb4db4f832ddf6ad4dadee6ae5d",
+  "metadata_strings_redacted": 356,
+  "method": "Equal-length metadata string redaction; estimator bytes unchanged; no model loading/fitting"
+}

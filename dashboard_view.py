@@ -1,0 +1,17 @@
+"""Local canvas map: wheel zoom, drag pan, approximate pixel/CRS hover coordinates."""
+import base64
+import json
+
+
+def scene_canvas(png,width,height,transform,crs):
+    data=base64.b64encode(png).decode();settings=json.dumps(dict(width=width,height=height,transform=transform,crs=crs))
+    return '''<!doctype html><html><meta charset="utf-8"><style>body{margin:0;background:#101b27;color:#aabecb;font:13px system-ui}#wrap{position:relative;height:740px;border:1px solid #344857;border-radius:10px;overflow:hidden}canvas{width:100%;height:100%;cursor:grab;background:repeating-conic-gradient(#243442 0% 25%,#192734 0% 50%) 0/22px 22px}#tools{position:absolute;top:12px;left:12px;display:flex;gap:8px}button{background:#1c3443;color:#e1f4f0;border:1px solid #4baea0;border-radius:5px;padding:7px 12px;cursor:pointer}#coords{position:absolute;bottom:12px;left:12px;background:#10202de8;padding:9px;border-radius:5px}#hint{padding:8px 4px}</style>
+    <div id="wrap"><canvas id="map"></canvas><div id="tools"><button id="fit">Fit scene</button><button id="expand">Fullscreen</button></div><div id="coords">Hover for source pixel and projected coordinates</div></div><div id="hint">Wheel: zoom · Drag: pan · Transparent checkerboard: uncovered/unannotated · Hover coordinates refer to source grid; preview colors are display samples.</div><script>
+    const cfg=SETTINGS,img=new Image(),canvas=document.getElementById('map'),ctx=canvas.getContext('2d'),wrap=document.getElementById('wrap');let scale=1,ox=0,oy=0,drag=false,lastX=0,lastY=0;
+    function draw(){ctx.clearRect(0,0,canvas.width,canvas.height);ctx.imageSmoothingEnabled=false;ctx.drawImage(img,ox,oy,img.width*scale,img.height*scale)}
+    function fit(){canvas.width=wrap.clientWidth;canvas.height=wrap.clientHeight;scale=Math.min(canvas.width/img.width,canvas.height/img.height)*.96;ox=(canvas.width-img.width*scale)/2;oy=(canvas.height-img.height*scale)/2;draw()}
+    img.onload=fit;img.src='data:image/png;base64,IMAGE';new ResizeObserver(()=>{if(img.complete&&img.width)fit()}).observe(wrap);
+    canvas.addEventListener('wheel',e=>{e.preventDefault();const r=canvas.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top,k=e.deltaY<0?1.18:1/1.18,n=Math.max(.02,Math.min(40,scale*k));ox=x-(x-ox)*n/scale;oy=y-(y-oy)*n/scale;scale=n;draw()},{passive:false});
+    canvas.onpointerdown=e=>{drag=true;lastX=e.clientX;lastY=e.clientY;canvas.setPointerCapture(e.pointerId)};canvas.onpointerup=()=>drag=false;
+    canvas.onpointermove=e=>{if(drag){ox+=e.clientX-lastX;oy+=e.clientY-lastY;lastX=e.clientX;lastY=e.clientY;draw()}const r=canvas.getBoundingClientRect(),px=(e.clientX-r.left-ox)/scale,py=(e.clientY-r.top-oy)/scale,col=Math.floor(px/img.width*cfg.width),row=Math.floor(py/img.height*cfg.height);if(row>=0&&row<cfg.height&&col>=0&&col<cfg.width){const t=cfg.transform,x=t[0]*(col+.5)+t[1]*(row+.5)+t[2],y=t[3]*(col+.5)+t[4]*(row+.5)+t[5];document.getElementById('coords').textContent=`Source row ${row}, col ${col} · X ${x.toFixed(2)}, Y ${y.toFixed(2)} · ${cfg.crs}`}};
+    document.getElementById('fit').onclick=fit;document.getElementById('expand').onclick=()=>{if(!document.fullscreenElement)wrap.requestFullscreen().catch(()=>{document.getElementById('coords').textContent='Browser fullscreen unavailable; use wheel zoom and drag pan'});else document.exitFullscreen()};</script></html>'''.replace('SETTINGS',settings).replace('IMAGE',data)

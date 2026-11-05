@@ -1,0 +1,108 @@
+{
+  "version": "kandla-cloud-seal-v1",
+  "python_target": "3.12",
+  "mode": "precomputed-real-preview-demo",
+  "original_dashboard_sha256": "efc0e289d3946a82baf13f265ddd397f7a855ab06f5146a934e54a4466af98d3",
+  "files": {
+    ".gitignore": {
+      "bytes": 664,
+      "sha256": "7e63cd154052a163741a854c79372ede67ef666271c20158ef8af7c4f8a97368"
+    },
+    ".python-version": {
+      "bytes": 5,
+      "sha256": "7b55f8e67b5623c4bef3fa691288da9437d79d3aba156de48d481db32ac7d16d"
+    },
+    ".streamlit/config.toml": {
+      "bytes": 183,
+      "sha256": "a4824ce89313c02b988867223219dfcd71200adba0a36b1232acc56ae1b3b72a"
+    },
+    "AVAILABLE_DATES.md": {
+      "bytes": 900,
+      "sha256": "a35801399ff5b801992f2785032974598edaa4fe2978bf4f7f4c8b167b249e7d"
+    },
+    "DATA_NOTICE.md": {
+      "bytes": 1654,
+      "sha256": "5264bafb360e4169f96ccd5f3d92a6ee60e6e61b4462dcbe8c98a8f5b4833ed9"
+    },
+    "README.md": {
+      "bytes": 9210,
+      "sha256": "727ab19d90f8dd8feeef56b452230bd5d36a79770ce1373a0093970f5a1ce7fd"
+    },
+    "TEST_STATUS.md": {
+      "bytes": 1932,
+      "sha256": "827344288716fc4b334d7d2ce2313cfedd4b8a8f94c90d8af4270e02ecea9add"
+    },
+    "app.py": {
+      "bytes": 17595,
+      "sha256": "ce8c4007c7862678fb362aec9f44a056f6f48d6855a60e637fab1f6fd342ae7c"
+    },
+    "cloud_backend.py": {
+      "bytes": 8391,
+      "sha256": "dcde5bc22a071ba00facf0e9474fb87f1b5984447a6c09b5b835d627eb5dd1a9"
+    },
+    "cloud_render.py": {
+      "bytes": 3601,
+      "sha256": "8604d5d4868d7775965f8b3b122a50b24d75216ef70f71eecbadb00f32e86310"
+    },
+    "dashboard_view.py": {
+      "bytes": 3422,
+      "sha256": "24e0010209ee42c9c524bbb9f7398506ea556cfcf4b2eeb7d2c196958101367f"
+    },
+    "data/dates/20260531/date_bundle.json": {
+      "bytes": 19137,
+      "sha256": "d301ea6a1c5808b07d166020109f1b8bcddeb4a0961cdece3a5eb9410c074e67"
+    },
+    "data/dates/20260531/date_statistics.csv": {
+      "bytes": 1010,
+      "sha256": "49c7d0fad65ad2de242fbd235c556aa290f5b13776880ee1f2aef30dc4aecd93"
+    },
+    "data/dates/20260603/date_bundle.json": {
+      "bytes": 19150,
+      "sha256": "2bc89fb39bcb1b358c0b4217dcaea6f53c286e45813b0de0ee653ef89a327e70"
+    },
+    "data/dates/20260603/date_statistics.csv": {
+      "bytes": 1011,
+      "sha256": "e27dfc41ddd98b7206bb74fd94b5bb667b68df54e09f82f84fabfe3df4a851d4"
+    },
+    "data/demo_manifest.json": {
+      "bytes": 769,
+      "sha256": "e04bd45397b978277c9a4ebbaaea938b620e0b2e100e991f95330e512b68bf80"
+    },
+    "data/scenes/20260531_063100_24_2504_3B/analysis.json": {
+      "bytes": 12023,
+      "sha256": "6ac559911411ce03a28a65531a5cfb30e2acbde99bd8ddbdd449dacc9ba6109a"
+    },
+    "data/scenes/20260531_063100_24_2504_3B/preview_1024.npz": {
+      "bytes": 937175,
+      "sha256": "530fd9a9b6786d796ac0f626c05d49b3fb215f0eb65a4d925d115695264e04d0"
+    },
+    "data/scenes/20260603_063613_80_250a_3B/analysis.json": {
+      "bytes": 12036,
+      "sha256": "8b2352be66d587c24305d130ce1c7cff1d123d06fa0393e728ef8958109d7880"
+    },
+    "data/scenes/20260603_063613_80_250a_3B/preview_1024.npz": {
+      "bytes": 925894,
+      "sha256": "d6fc56e9efaee3eafda4782aceac576d57fd14cdc1192a4403e77cbbb1454107"
+    },
+    "models/byte_preservation.json": {
+      "bytes": 473,
+      "sha256": "b6aedba3e734d15b3d68764374ad1f454fe88762834b21e4b256eaca6ab036bb"
+    },
+    "models/report.json": {
+      "bytes": 4259,
+      "sha256": "8fc28741800c9c8bda4d1e59b0ec65d2a45175639cbdf04c652daccfb0903dbc"
+    },
+    "models/selected_model.joblib": {
+      "bytes": 8872484,
+      "sha256": "67e83fc904103e611c6bb8e44498647d1c2e761a45e18d44069a56edbb060666"
+    },
+    "requirements.txt": {
+      "bytes": 218,
+      "sha256": "50d43fcc23fd61de6e74c2458818e1a43bd69c6813fcf8b351d871849ab3e67c"
+    },
+    "smoke_test.py": {
+      "bytes": 9511,
+      "sha256": "afd2056530e86e17ea6c17ae905d593202342cce1303cc096a34ae9c31dfa30a"
+    }
+  }
+}

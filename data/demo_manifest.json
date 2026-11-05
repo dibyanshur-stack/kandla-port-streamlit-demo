@@ -1,0 +1,25 @@
+{
+  "version": "kandla-public-demo-v1",
+  "dates": {
+    "20260531": {
+      "bundle": "data/dates/20260531/date_bundle.json",
+      "scene_ids": [
+        "20260531_063100_24_2504_3B"
+      ],
+      "split": "val",
+      "preview_only": true
+    },
+    "20260603": {
+      "bundle": "data/dates/20260603/date_bundle.json",
+      "scene_ids": [
+        "20260603_063613_80_250a_3B"
+      ],
+      "split": "val",
+      "preview_only": true
+    }
+  },
+  "model": "models/selected_model.joblib",
+  "metadata": "models/report.json",
+  "source_model_sha256": "0b0ee5f675bd7e100c5660ee0134e705785055dc0abe3b497d5b7a714ef3cc5a",
+  "policy": "Precomputed real preview mosaics and aggregate statistics only. No training, raw imagery, annotation masks or reserved test data."
+}

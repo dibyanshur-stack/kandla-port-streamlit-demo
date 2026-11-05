@@ -1,0 +1,585 @@
+{
+  "acquisition_date": "20260603",
+  "split": "val",
+  "scene_ids": [
+    "20260603_063613_80_250a_3B"
+  ],
+  "scenes": [
+    {
+      "acquisition_date": "20260603",
+      "scene_id": "20260603_063613_80_250a_3B",
+      "split": "val",
+      "geometry": {
+        "height": 3251,
+        "width": 931,
+        "crs": "EPSG:32642",
+        "transform": [
+          3.0,
+          0.0,
+          624807.0,
+          0.0,
+          -3.0,
+          2549373.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "statistics": {
+        "source_pixels": 3026681,
+        "covered_pixels": 3026681,
+        "uncovered_pixels": 0,
+        "covered_percent_of_source": 100.0,
+        "quality_valid_pixels": 1485490,
+        "analyzed_valid_percent_of_source": 49.07983365277015,
+        "source_quality_valid_pixels": 1485490,
+        "uncovered_quality_valid_pixels": 0,
+        "covered_invalid_pixels": 1541191,
+        "class_pixels": {
+          "ship": 87940,
+          "water": 997701,
+          "other": 399849
+        },
+        "class_percent_of_unique_valid": {
+          "ship": 5.9199321436024475,
+          "water": 67.16309096661708,
+          "other": 26.916976889780475
+        },
+        "pixel_area_m2": 9.0,
+        "ship_area_m2": 791460.0,
+        "probability": {
+          "min": 0.0003430922806728631,
+          "max": 0.98207026720047,
+          "mean": 0.1125391498208046,
+          "median": 0.030690083280205727,
+          "histogram_counts": [
+            822962,
+            109383,
+            137802,
+            175465,
+            64966,
+            33045,
+            22581,
+            16599,
+            13954,
+            11346,
+            11096,
+            10542,
+            12182,
+            13681,
+            10652,
+            9236,
+            7554,
+            1571,
+            524,
+            349
+          ],
+          "histogram_edges": [
+            0.0,
+            0.05,
+            0.1,
+            0.15000000000000002,
+            0.2,
+            0.25,
+            0.30000000000000004,
+            0.35000000000000003,
+            0.4,
+            0.45,
+            0.5,
+            0.55,
+            0.6000000000000001,
+            0.65,
+            0.7000000000000001,
+            0.75,
+            0.8,
+            0.8500000000000001,
+            0.9,
+            0.9500000000000001,
+            1.0
+          ]
+        },
+        "annotated_footprint_pixels": 1310720,
+        "annotation_conflict_pixels": 0
+      },
+      "validation_metrics": {
+        "class_order": [
+          1,
+          2,
+          3
+        ],
+        "matrix_orientation": "rows=ground_truth, columns=prediction",
+        "confusion_matrix": [
+          [
+            2401,
+            96,
+            3513
+          ],
+          [
+            21062,
+            360541,
+            41651
+          ],
+          [
+            7421,
+            156,
+            112305
+          ]
+        ],
+        "evaluated_pixels": 549146,
+        "accuracy": 0.8654292301136675,
+        "ship": {
+          "class_id": 1,
+          "support": 6010,
+          "predicted_support": 30884,
+          "true_positive": 2401,
+          "false_positive": 28483,
+          "false_negative": 3609,
+          "precision": 0.07774252039891205,
+          "recall": 0.3995008319467554,
+          "f1": 0.13015666504038598,
+          "iou": 0.06960832632708086,
+          "status": "present"
+        },
+        "water_to_ship_false_positives": 21062,
+        "other_to_ship_false_positives": 7421,
+        "classes": {
+          "ship": {
+            "class_id": 1,
+            "support": 6010,
+            "predicted_support": 30884,
+            "true_positive": 2401,
+            "false_positive": 28483,
+            "false_negative": 3609,
+            "precision": 0.07774252039891205,
+            "recall": 0.3995008319467554,
+            "f1": 0.13015666504038598,
+            "iou": 0.06960832632708086,
+            "status": "present"
+          },
+          "water": {
+            "class_id": 2,
+            "support": 423254,
+            "predicted_support": 360793,
+            "true_positive": 360541,
+            "false_positive": 252,
+            "false_negative": 62713,
+            "precision": 0.9993015385553489,
+            "recall": 0.8518312880681577,
+            "f1": 0.9196923143638073,
+            "iou": 0.8513244204332406,
+            "status": "present"
+          },
+          "other": {
+            "class_id": 3,
+            "support": 119882,
+            "predicted_support": 157469,
+            "true_positive": 112305,
+            "false_positive": 45164,
+            "false_negative": 7577,
+            "precision": 0.7131879925572653,
+            "recall": 0.936796182913198,
+            "f1": 0.8098402385424966,
+            "iou": 0.6804466633544588,
+            "status": "present"
+          }
+        },
+        "macro_f1": 0.61989640598223,
+        "mean_iou_present_union": 0.5337931367049268,
+        "undefined_policy": "Undefined denominators are null (CSV blank). A class absent in truth but predicted has precision/F1/IoU=0 and recall=null. A class absent in both has all metrics=null. Macro averages include only classes with a defined corresponding metric.",
+        "scored_unique_pixels": 549146,
+        "annotation_conflict_pixels": 0,
+        "scope": "Unique quality-valid source pixels with non-Ignore validation annotation; no unannotated background assumptions"
+      },
+      "source_tile_count": 14,
+      "input_fingerprint": "6c858a913167f4fd7da8d8fd3200a087fd25b3540ca921eb2a47f2851ecb1d94",
+      "overlap_policy": "Tiles sorted by (row, col, tile_id); first covered source pixel wins for ALL prediction layers, including invalid pixels. Overlap quality must agree; prediction disagreements are counted. No categorical blending. Validation labels are unioned independently; Ignore never hides a known label; conflicting non-Ignore labels are excluded from scoring.",
+      "overlap_observations": 643335,
+      "prediction_disagreements": 0,
+      "model_path": "models/selected_model.joblib",
+      "model_sha256": "0b0ee5f675bd7e100c5660ee0134e705785055dc0abe3b497d5b7a714ef3cc5a",
+      "model_metadata": {
+        "name": "Selected tuned RF-2",
+        "trial_id": "rf2_002",
+        "features": [
+          "coastal_blue",
+          "blue",
+          "green_i",
+          "green",
+          "yellow",
+          "red",
+          "red_edge",
+          "nir",
+          "NDVI",
+          "NDWI",
+          "NDRE",
+          "GNDVI"
+        ],
+        "feature_spec": {
+          "version": "semantic-rf-features-v1",
+          "mode": "bands-indices",
+          "names": [
+            "coastal_blue",
+            "blue",
+            "green_i",
+            "green",
+            "yellow",
+            "red",
+            "red_edge",
+            "nir",
+            "NDVI",
+            "NDWI",
+            "NDRE",
+            "GNDVI"
+          ],
+          "definitions": {
+            "coastal_blue": "PlanetScope SR band 1, raw DN cast to float32",
+            "blue": "PlanetScope SR band 2, raw DN cast to float32",
+            "green_i": "PlanetScope SR band 3, raw DN cast to float32",
+            "green": "PlanetScope SR band 4, raw DN cast to float32",
+            "yellow": "PlanetScope SR band 5, raw DN cast to float32",
+            "red": "PlanetScope SR band 6, raw DN cast to float32",
+            "red_edge": "PlanetScope SR band 7, raw DN cast to float32",
+            "nir": "PlanetScope SR band 8, raw DN cast to float32",
+            "NDVI": "(NIR-Red)/(NIR+Red)",
+            "NDWI": "(Green II-NIR)/(Green II+NIR)",
+            "NDRE": "(NIR-RedEdge)/(NIR+RedEdge)",
+            "GNDVI": "(NIR-Green II)/(NIR+Green II)"
+          },
+          "parameters": {
+            "sr_scaling": "none; raw SR values cast to float32",
+            "band_order_1_based": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "index_zero_denominator": "zero where abs(denominator) <= 1e-8",
+            "quality": "UDM2 clear band 1 == 1; bands 2,3,4,5,6,8 == 0; all band nodata masks valid; all bands finite"
+          }
+        },
+        "arguments": {
+          "features": "bands-indices"
+        },
+        "classes": {
+          "0": "ignore",
+          "1": "ship",
+          "2": "water",
+          "3": "other"
+        },
+        "model_hyperparameters": {
+          "bootstrap": true,
+          "ccp_alpha": 0.0,
+          "class_weight": null,
+          "criterion": "gini",
+          "max_depth": 10,
+          "max_features": "sqrt",
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 2,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 200,
+          "n_jobs": 8,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "sampling": {
+          "seed": 42,
+          "class_ratio": "1:5:5",
+          "balance_classes": "class-ratio",
+          "ratio_plan": {
+            "requested_ratio": "1:5:5",
+            "requested_ship_anchor": 48210,
+            "requested_counts": {
+              "ship": 48210,
+              "water": 241050,
+              "other": 241050
+            },
+            "capped_candidate_counts": {
+              "ship": 48210,
+              "water": 200000,
+              "other": 210328
+            },
+            "achieved_counts": {
+              "ship": 48210,
+              "water": 200000,
+              "other": 210328
+            },
+            "achieved_ratio_to_ship": {
+              "ship": 1.0,
+              "water": 4.148516905206389,
+              "other": 4.362746318191246
+            },
+            "shortfall": {
+              "ship": 0,
+              "water": 41050,
+              "other": 30722
+            },
+            "all_targets_met": false,
+            "limited_classes": [
+              "water",
+              "other"
+            ],
+            "replacement": false,
+            "algorithm": "legacy-base-plus-class-permutation-v1",
+            "extension_seed_sequence": "[seed, semantic_class_id, 8675309]",
+            "class_order": [
+              1,
+              2,
+              3
+            ],
+            "identity_policy": "Legacy equal-sample base, extended by fixed per-class random permutations; common Ship samples and nested backgrounds"
+          },
+          "pixels_per_class_per_tile": 2000
+        },
+        "sklearn_version": "1.9.1",
+        "dataset_counts": {
+          "train": 113,
+          "val": 16,
+          "test": 15
+        },
+        "dataset_fingerprint": "86108669fd33490c37adcb29db34d29019004288d83c656b548f8a4d3e6c92d3",
+        "source_artifact_sha256": "0b0ee5f675bd7e100c5660ee0134e705785055dc0abe3b497d5b7a714ef3cc5a",
+        "public_artifact_sha256": "67e83fc904103e611c6bb8e44498647d1c2e761a45e18d44069a56edbb060666",
+        "disclosure": "Only derived demo previews and aggregate validation statistics are public. No raw scenes or pixel annotation masks.",
+        "runtime": "Precomputed demonstration. Saved estimator included for reproducibility, not used for cloud training or live inference."
+      },
+      "signature": {
+        "feature_contract": {
+          "version": "semantic-rf-features-v1",
+          "mode": "bands-indices",
+          "names": [
+            "coastal_blue",
+            "blue",
+            "green_i",
+            "green",
+            "yellow",
+            "red",
+            "red_edge",
+            "nir",
+            "NDVI",
+            "NDWI",
+            "NDRE",
+            "GNDVI"
+          ],
+          "definitions": {
+            "coastal_blue": "PlanetScope SR band 1, raw DN cast to float32",
+            "blue": "PlanetScope SR band 2, raw DN cast to float32",
+            "green_i": "PlanetScope SR band 3, raw DN cast to float32",
+            "green": "PlanetScope SR band 4, raw DN cast to float32",
+            "yellow": "PlanetScope SR band 5, raw DN cast to float32",
+            "red": "PlanetScope SR band 6, raw DN cast to float32",
+            "red_edge": "PlanetScope SR band 7, raw DN cast to float32",
+            "nir": "PlanetScope SR band 8, raw DN cast to float32",
+            "NDVI": "(NIR-Red)/(NIR+Red)",
+            "NDWI": "(Green II-NIR)/(Green II+NIR)",
+            "NDRE": "(NIR-RedEdge)/(NIR+RedEdge)",
+            "GNDVI": "(NIR-Green II)/(NIR+Green II)"
+          },
+          "parameters": {
+            "sr_scaling": "none; raw SR values cast to float32",
+            "band_order_1_based": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "index_zero_denominator": "zero where abs(denominator) <= 1e-8",
+            "quality": "UDM2 clear band 1 == 1; bands 2,3,4,5,6,8 == 0; all band nodata masks valid; all bands finite"
+          }
+        }
+      },
+      "cache_path": "data/scenes/20260603_063613_80_250a_3B",
+      "processed_tile_count": 14,
+      "missing_tile_count": 0,
+      "processed_tile_ids": [],
+      "missing_tile_ids": [],
+      "preview_only": true,
+      "preview_geometry": {
+        "height": 1024,
+        "width": 293,
+        "sample_mapping": "source_row=floor(preview_row*source_height/preview_height); source_col=floor(preview_col*source_width/preview_width)",
+        "original_extent_and_crs_preserved": true
+      },
+      "metrics_scope": "Cached full-resolution unique valid scene pixels; never recomputed from display samples",
+      "labels_public": false,
+      "annotation_layers_available": false
+    }
+  ],
+  "analyzed_scenes": 1,
+  "source_tile_count": 14,
+  "selected_model": {
+    "path": "models/selected_model.joblib",
+    "metadata": {
+      "name": "Selected tuned RF-2",
+      "trial_id": "rf2_002",
+      "features": [
+        "coastal_blue",
+        "blue",
+        "green_i",
+        "green",
+        "yellow",
+        "red",
+        "red_edge",
+        "nir",
+        "NDVI",
+        "NDWI",
+        "NDRE",
+        "GNDVI"
+      ],
+      "feature_spec": {
+        "version": "semantic-rf-features-v1",
+        "mode": "bands-indices",
+        "names": [
+          "coastal_blue",
+          "blue",
+          "green_i",
+          "green",
+          "yellow",
+          "red",
+          "red_edge",
+          "nir",
+          "NDVI",
+          "NDWI",
+          "NDRE",
+          "GNDVI"
+        ],
+        "definitions": {
+          "coastal_blue": "PlanetScope SR band 1, raw DN cast to float32",
+          "blue": "PlanetScope SR band 2, raw DN cast to float32",
+          "green_i": "PlanetScope SR band 3, raw DN cast to float32",
+          "green": "PlanetScope SR band 4, raw DN cast to float32",
+          "yellow": "PlanetScope SR band 5, raw DN cast to float32",
+          "red": "PlanetScope SR band 6, raw DN cast to float32",
+          "red_edge": "PlanetScope SR band 7, raw DN cast to float32",
+          "nir": "PlanetScope SR band 8, raw DN cast to float32",
+          "NDVI": "(NIR-Red)/(NIR+Red)",
+          "NDWI": "(Green II-NIR)/(Green II+NIR)",
+          "NDRE": "(NIR-RedEdge)/(NIR+RedEdge)",
+          "GNDVI": "(NIR-Green II)/(NIR+Green II)"
+        },
+        "parameters": {
+          "sr_scaling": "none; raw SR values cast to float32",
+          "band_order_1_based": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "index_zero_denominator": "zero where abs(denominator) <= 1e-8",
+          "quality": "UDM2 clear band 1 == 1; bands 2,3,4,5,6,8 == 0; all band nodata masks valid; all bands finite"
+        }
+      },
+      "arguments": {
+        "features": "bands-indices"
+      },
+      "classes": {
+        "0": "ignore",
+        "1": "ship",
+        "2": "water",
+        "3": "other"
+      },
+      "model_hyperparameters": {
+        "bootstrap": true,
+        "ccp_alpha": 0.0,
+        "class_weight": null,
+        "criterion": "gini",
+        "max_depth": 10,
+        "max_features": "sqrt",
+        "max_leaf_nodes": null,
+        "max_samples": null,
+        "min_impurity_decrease": 0.0,
+        "min_samples_leaf": 2,
+        "min_samples_split": 2,
+        "min_weight_fraction_leaf": 0.0,
+        "monotonic_cst": null,
+        "n_estimators": 200,
+        "n_jobs": 8,
+        "oob_score": false,
+        "random_state": 42,
+        "verbose": 0,
+        "warm_start": false
+      },
+      "sampling": {
+        "seed": 42,
+        "class_ratio": "1:5:5",
+        "balance_classes": "class-ratio",
+        "ratio_plan": {
+          "requested_ratio": "1:5:5",
+          "requested_ship_anchor": 48210,
+          "requested_counts": {
+            "ship": 48210,
+            "water": 241050,
+            "other": 241050
+          },
+          "capped_candidate_counts": {
+            "ship": 48210,
+            "water": 200000,
+            "other": 210328
+          },
+          "achieved_counts": {
+            "ship": 48210,
+            "water": 200000,
+            "other": 210328
+          },
+          "achieved_ratio_to_ship": {
+            "ship": 1.0,
+            "water": 4.148516905206389,
+            "other": 4.362746318191246
+          },
+          "shortfall": {
+            "ship": 0,
+            "water": 41050,
+            "other": 30722
+          },
+          "all_targets_met": false,
+          "limited_classes": [
+            "water",
+            "other"
+          ],
+          "replacement": false,
+          "algorithm": "legacy-base-plus-class-permutation-v1",
+          "extension_seed_sequence": "[seed, semantic_class_id, 8675309]",
+          "class_order": [
+            1,
+            2,
+            3
+          ],
+          "identity_policy": "Legacy equal-sample base, extended by fixed per-class random permutations; common Ship samples and nested backgrounds"
+        },
+        "pixels_per_class_per_tile": 2000
+      },
+      "sklearn_version": "1.9.1",
+      "dataset_counts": {
+        "train": 113,
+        "val": 16,
+        "test": 15
+      },
+      "dataset_fingerprint": "86108669fd33490c37adcb29db34d29019004288d83c656b548f8a4d3e6c92d3",
+      "source_artifact_sha256": "0b0ee5f675bd7e100c5660ee0134e705785055dc0abe3b497d5b7a714ef3cc5a",
+      "public_artifact_sha256": "67e83fc904103e611c6bb8e44498647d1c2e761a45e18d44069a56edbb060666",
+      "disclosure": "Only derived demo previews and aggregate validation statistics are public. No raw scenes or pixel annotation masks.",
+      "runtime": "Precomputed demonstration. Saved estimator included for reproducibility, not used for cloud training or live inference."
+    },
+    "sha256": "0b0ee5f675bd7e100c5660ee0134e705785055dc0abe3b497d5b7a714ef3cc5a"
+  },
+  "input_fingerprint": "04e15ff0e10cd6dfb84d0dc57198a2eb59cace057b228c183e3e02762dd0bdcb",
+  "preview_only": true,
+  "aggregation_policy": "Separate source footprints. No pooled date pixel counts or area; scenes may overlap geographically."
+}
